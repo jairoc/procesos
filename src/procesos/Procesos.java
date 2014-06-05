@@ -5,7 +5,7 @@
  */
 
 package procesos;
-
+//importar paquetes
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,15 +20,14 @@ import javax.swing.JOptionPane;
  * @author Jairo
  */
 public class Procesos {
-
+    //declaracion de variables
     String nombres ="Jairo Antonio";
     String apellido ="Contreras Mendieta";
     int edad= 26;
     String correo = "jacontreras@utpl.edu.ec";
     String materia ="ingenieria en procesos";
-    /**
-     * @param args the command line arguments
-     */
+    
+    //Creacion de archivo
     static String directorio ="C:\\Users\\Jairo\\Desktop//DeberProcesos.txt";
     public static void main(String[] args) throws IOException {
     int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero : \n 1.Ingresar datos en un archivo \n 2.Leer el archivo \n  "));
@@ -38,12 +37,13 @@ public class Procesos {
               IngresarDatos();
         }else{
          if(numero ==2){
-             LeerArchivo();
+             LeerDatos();
          }
         }    
        
         // TODO code application logic here
     }
+    //metodeo para ingresar datos
     public static void IngresarDatos() throws IOException{
           File documento = new File(directorio);
     if (!documento.exists()) {
@@ -66,22 +66,20 @@ public class Procesos {
             
            }
       }
-   public static void LeerArchivo(){
-         BufferedReader br = null;
+    //metodo de lectura del archivo creado
+   public static void LeerDatos(){
+         BufferedReader datos = null;
  		try {
- 			String Linea;
- 			br = new BufferedReader(new FileReader(directorio));
- 			while ((Linea = br.readLine()) != null) { //recorremos y presentamos el contenido del archivo de texto
-                             System.out.println(Linea); // imprimimos cada linea del archivo
- 			}  
+ 			String dato;
+ 			datos = new BufferedReader(new FileReader(directorio));//Permite leer texto del archivo creaado en directorio
+ 			while ((dato = datos.readLine()) != null) { //recorremos y presentamos el contenido del archivo de texto
+                             System.out.println(dato); // imprimimos cada linea del archivo creado anteriormente
+                            
+                        } 
+                        
  		} catch (IOException e) {
- 			e.printStackTrace();
- 		} finally {
- 			try {
- 				if (br != null)br.close();
- 			} catch (IOException ex) {
- 				ex.printStackTrace();
- 			}
+ 			e.getMessage();//Se usa para obtener un mensaje de error asociado con una excepción
+ 		
  		}
      }
 }
