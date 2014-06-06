@@ -20,19 +20,13 @@ import javax.swing.JOptionPane;
  * @author Jairo
  */
 public class Procesos {
-    //declaracion de variables
-    String nombres ="Jairo Antonio";
-    String apellido ="Contreras Mendieta";
-    int edad= 26;
-    String correo = "jacontreras@utpl.edu.ec";
-    String materia ="ingenieria en procesos";
+    
     
     //Creacion de archivo
     static String directorio ="C:\\Users\\Jairo\\Desktop//DeberProcesos.txt";
     public static void main(String[] args) throws IOException {
-    int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero : \n 1.Ingresar datos en un archivo \n 2.Leer el archivo \n  "));
+    int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opcion que desee : \n 1.Ingresar datos en un archivo \n 2.Leer el archivo \n  "));
     
-   
         if(numero ==1 ){ 
               IngresarDatos();
         }else{
@@ -41,9 +35,8 @@ public class Procesos {
          }
         }    
        
-        // TODO code application logic here
-    }
-    //metodeo para ingresar datos
+            }
+    //metodo para ingresar datos
     public static void IngresarDatos() throws IOException{
           File documento = new File(directorio);
     if (!documento.exists()) {
